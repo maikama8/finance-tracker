@@ -1,0 +1,654 @@
+{
+  "@@locale": "en",
+  "appTitle": "Personal Finance Tracker",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+  "dashboard": "Dashboard",
+  "@dashboard": {
+    "description": "Dashboard screen title"
+  },
+  "transactions": "Transactions",
+  "@transactions": {
+    "description": "Transactions screen title"
+  },
+  "savingsGoals": "Savings Goals",
+  "@savingsGoals": {
+    "description": "Savings goals screen title"
+  },
+  "budgets": "Budgets",
+  "@budgets": {
+    "description": "Budgets screen title"
+  },
+  "settings": "Settings",
+  "@settings": {
+    "description": "Settings screen title"
+  },
+  "totalBalance": "Total Balance",
+  "@totalBalance": {
+    "description": "Label for total balance"
+  },
+  "monthlySpending": "Monthly Spending",
+  "@monthlySpending": {
+    "description": "Label for monthly spending"
+  },
+  "addTransaction": "Add Transaction",
+  "@addTransaction": {
+    "description": "Button to add a new transaction"
+  },
+  "income": "Income",
+  "@income": {
+    "description": "Income transaction type"
+  },
+  "expense": "Expense",
+  "@expense": {
+    "description": "Expense transaction type"
+  },
+  "amount": "Amount",
+  "@amount": {
+    "description": "Label for amount field"
+  },
+  "category": "Category",
+  "@category": {
+    "description": "Label for category field"
+  },
+  "date": "Date",
+  "@date": {
+    "description": "Label for date field"
+  },
+  "notes": "Notes",
+  "@notes": {
+    "description": "Label for notes field"
+  },
+  "save": "Save",
+  "@save": {
+    "description": "Save button text"
+  },
+  "cancel": "Cancel",
+  "@cancel": {
+    "description": "Cancel button text"
+  },
+  "delete": "Delete",
+  "@delete": {
+    "description": "Delete button text"
+  },
+  "edit": "Edit",
+  "@edit": {
+    "description": "Edit button text"
+  },
+  "goalName": "Goal Name",
+  "@goalName": {
+    "description": "Label for savings goal name"
+  },
+  "targetAmount": "Target Amount",
+  "@targetAmount": {
+    "description": "Label for target amount"
+  },
+  "currentAmount": "Current Amount",
+  "@currentAmount": {
+    "description": "Label for current amount"
+  },
+  "deadline": "Deadline",
+  "@deadline": {
+    "description": "Label for deadline"
+  },
+  "contribute": "Contribute",
+  "@contribute": {
+    "description": "Button to contribute to a goal"
+  },
+  "progress": "Progress",
+  "@progress": {
+    "description": "Label for progress"
+  },
+  "budgetLimit": "Budget Limit",
+  "@budgetLimit": {
+    "description": "Label for budget limit"
+  },
+  "spent": "Spent",
+  "@spent": {
+    "description": "Label for amount spent"
+  },
+  "remaining": "Remaining",
+  "@remaining": {
+    "description": "Label for remaining amount"
+  },
+  "language": "Language",
+  "@language": {
+    "description": "Label for language setting"
+  },
+  "currency": "Currency",
+  "@currency": {
+    "description": "Label for currency setting"
+  },
+  "notifications": "Notifications",
+  "@notifications": {
+    "description": "Label for notifications setting"
+  },
+  "exportData": "Export Data",
+  "@exportData": {
+    "description": "Button to export data"
+  },
+  "signOut": "Sign Out",
+  "@signOut": {
+    "description": "Button to sign out"
+  },
+  "noTransactions": "No transactions yet",
+  "@noTransactions": {
+    "description": "Empty state message for transactions"
+  },
+  "noGoals": "No savings goals yet",
+  "@noGoals": {
+    "description": "Empty state message for savings goals"
+  },
+  "noBudgets": "No budgets set",
+  "@noBudgets": {
+    "description": "Empty state message for budgets"
+  },
+  "budgetWarning": "You've reached 80% of your budget limit",
+  "@budgetWarning": {
+    "description": "Budget warning notification"
+  },
+  "budgetExceeded": "Budget limit exceeded!",
+  "@budgetExceeded": {
+    "description": "Budget exceeded notification"
+  },
+  "goalAchieved": "Congratulations! You've reached your savings goal!",
+  "@goalAchieved": {
+    "description": "Goal achievement notification"
+  },
+  "reminderTitle": "Savings Reminder",
+  "@reminderTitle": {
+    "description": "Title for savings reminder notification"
+  },
+  "syncStatus": "Last synced: {time}",
+  "@syncStatus": {
+    "description": "Sync status message",
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "offlineMode": "Offline Mode",
+  "@offlineMode": {
+    "description": "Offline mode indicator"
+  },
+  "loginSubtitle": "Manage your finances securely",
+  "@loginSubtitle": {
+    "description": "Subtitle on login screen"
+  },
+  "emailOrPhone": "Email or Phone Number",
+  "@emailOrPhone": {
+    "description": "Label for email or phone input"
+  },
+  "emailOrPhoneHint": "Enter your email or phone",
+  "@emailOrPhoneHint": {
+    "description": "Hint for email or phone input"
+  },
+  "emailOrPhoneRequired": "Please enter email or phone",
+  "@emailOrPhoneRequired": {
+    "description": "Validation message for required email or phone"
+  },
+  "invalidEmailOrPhone": "Invalid email or phone format",
+  "@invalidEmailOrPhone": {
+    "description": "Validation message for invalid email or phone"
+  },
+  "otpCode": "OTP Code",
+  "@otpCode": {
+    "description": "Label for OTP input"
+  },
+  "otpCodeHint": "Enter 6-digit code",
+  "@otpCodeHint": {
+    "description": "Hint for OTP input"
+  },
+  "otpRequired": "Please enter OTP",
+  "@otpRequired": {
+    "description": "Validation message for required OTP"
+  },
+  "otpInvalid": "OTP must be 6 digits",
+  "@otpInvalid": {
+    "description": "Validation message for invalid OTP"
+  },
+  "otpExpiryNote": "OTP expires in 5 minutes",
+  "@otpExpiryNote": {
+    "description": "Note about OTP expiry time"
+  },
+  "sendOtp": "Send OTP",
+  "@sendOtp": {
+    "description": "Button to send OTP"
+  },
+  "verifyOtp": "Verify OTP",
+  "@verifyOtp": {
+    "description": "Button to verify OTP"
+  },
+  "resendOtp": "Resend OTP",
+  "@resendOtp": {
+    "description": "Button to resend OTP"
+  },
+  "or": "OR",
+  "@or": {
+    "description": "Divider text between authentication methods"
+  },
+  "continueWith": "Continue with",
+  "@continueWith": {
+    "description": "Text before social login options"
+  },
+  "signInWithGoogle": "Sign in with Google",
+  "@signInWithGoogle": {
+    "description": "Button to sign in with Google"
+  },
+  "signInWithApple": "Sign in with Apple",
+  "@signInWithApple": {
+    "description": "Button to sign in with Apple"
+  },
+  "signInWithFacebook": "Sign in with Facebook",
+  "@signInWithFacebook": {
+    "description": "Button to sign in with Facebook"
+  },
+  "privacyTerms": "By continuing, you agree to our Terms of Service and Privacy Policy",
+  "@privacyTerms": {
+    "description": "Privacy and terms notice"
+  },
+  "error": "Error",
+  "@error": {
+    "description": "Error label"
+  },
+  "retry": "Retry",
+  "@retry": {
+    "description": "Retry button text"
+  },
+  "ok": "OK",
+  "@ok": {
+    "description": "OK button text"
+  },
+  "noTransactionsYet": "No Transactions Yet",
+  "@noTransactionsYet": {
+    "description": "Empty state title when no transactions exist"
+  },
+  "noTransactionsDescription": "Start tracking your finances by adding your first transaction. You can record income, expenses, and attach receipts.",
+  "@noTransactionsDescription": {
+    "description": "Empty state description when no transactions exist"
+  },
+  "addFirstTransaction": "Add First Transaction",
+  "@addFirstTransaction": {
+    "description": "Button to add first transaction"
+  },
+  "createSavingsGoal": "Create Savings Goal",
+  "@createSavingsGoal": {
+    "description": "Button to create savings goal"
+  },
+  "addTransactionComingSoon": "Add transaction feature coming soon!",
+  "@addTransactionComingSoon": {
+    "description": "Message for add transaction feature"
+  },
+  "savingsGoalsComingSoon": "Savings goals feature coming soon!",
+  "@savingsGoalsComingSoon": {
+    "description": "Message for savings goals feature"
+  },
+  "editTransaction": "Edit Transaction",
+  "@editTransaction": {
+    "description": "Title for edit transaction screen"
+  },
+  "pleaseEnterAmount": "Please enter an amount",
+  "@pleaseEnterAmount": {
+    "description": "Validation message for amount field"
+  },
+  "amountMustBePositive": "Amount must be positive",
+  "@amountMustBePositive": {
+    "description": "Validation message for positive amount"
+  },
+  "invalidAmount": "Invalid amount",
+  "@invalidAmount": {
+    "description": "Validation message for invalid amount"
+  },
+  "pleaseSelectCategory": "Please select a category",
+  "@pleaseSelectCategory": {
+    "description": "Validation message for category selection"
+  },
+  "selectCategory": "Select Category",
+  "@selectCategory": {
+    "description": "Placeholder for category selection"
+  },
+  "optional": "Optional",
+  "@optional": {
+    "description": "Label for optional fields"
+  },
+  "receiptPhoto": "Receipt Photo",
+  "@receiptPhoto": {
+    "description": "Label for receipt photo section"
+  },
+  "receiptAttached": "Receipt attached",
+  "@receiptAttached": {
+    "description": "Message when receipt is attached"
+  },
+  "remove": "Remove",
+  "@remove": {
+    "description": "Button to remove item"
+  },
+  "captureReceipt": "Capture Receipt",
+  "@captureReceipt": {
+    "description": "Button to capture receipt"
+  },
+  "saveChanges": "Save Changes",
+  "@saveChanges": {
+    "description": "Button to save changes"
+  },
+  "pleaseFillAllFields": "Please fill all required fields",
+  "@pleaseFillAllFields": {
+    "description": "Validation message for required fields"
+  },
+  "transactionUpdated": "Transaction updated",
+  "@transactionUpdated": {
+    "description": "Success message for transaction update"
+  },
+  "transactionAdded": "Transaction added",
+  "@transactionAdded": {
+    "description": "Success message for transaction creation"
+  },
+  "deleteTransaction": "Delete Transaction",
+  "@deleteTransaction": {
+    "description": "Title for delete transaction dialog"
+  },
+  "deleteTransactionConfirmation": "Are you sure you want to delete this transaction? This action cannot be undone.",
+  "@deleteTransactionConfirmation": {
+    "description": "Confirmation message for transaction deletion"
+  },
+  "transactionDeleted": "Transaction deleted",
+  "@transactionDeleted": {
+    "description": "Success message for transaction deletion"
+  },
+  "filterTransactions": "Filter Transactions",
+  "@filterTransactions": {
+    "description": "Title for filter dialog"
+  },
+  "dateRange": "Date Range",
+  "@dateRange": {
+    "description": "Label for date range filter"
+  },
+  "startDate": "Start Date",
+  "@startDate": {
+    "description": "Label for start date"
+  },
+  "endDate": "End Date",
+  "@endDate": {
+    "description": "Label for end date"
+  },
+  "allCategories": "All Categories",
+  "@allCategories": {
+    "description": "Option for all categories filter"
+  },
+  "clearFilters": "Clear",
+  "@clearFilters": {
+    "description": "Button to clear filters"
+  },
+  "apply": "Apply",
+  "@apply": {
+    "description": "Button to apply filters"
+  },
+  "noCategories": "No categories yet",
+  "@noCategories": {
+    "description": "Empty state message for categories"
+  },
+  "createFirstCategory": "Create your first category",
+  "@createFirstCategory": {
+    "description": "Empty state description for categories"
+  },
+  "createCategory": "Create Category",
+  "@createCategory": {
+    "description": "Button to create category"
+  },
+  "categoryName": "Category Name",
+  "@categoryName": {
+    "description": "Label for category name field"
+  },
+  "pleaseEnterCategoryName": "Please enter a category name",
+  "@pleaseEnterCategoryName": {
+    "description": "Validation message for category name"
+  },
+  "selectIcon": "Select Icon",
+  "@selectIcon": {
+    "description": "Label for icon selection"
+  },
+  "selectColor": "Select Color",
+  "@selectColor": {
+    "description": "Label for color selection"
+  },
+  "categoryPreview": "Category Preview",
+  "@categoryPreview": {
+    "description": "Label for category preview"
+  },
+  "subcategoryOf": "Subcategory of",
+  "@subcategoryOf": {
+    "description": "Label for parent category"
+  },
+  "categoryCreated": "Category created successfully",
+  "@categoryCreated": {
+    "description": "Success message for category creation"
+  },
+  "noImageSelected": "No image selected",
+  "@noImageSelected": {
+    "description": "Message when no image is selected"
+  },
+  "retake": "Retake",
+  "@retake": {
+    "description": "Button to retake photo"
+  },
+  "extractData": "Extract Data",
+  "@extractData": {
+    "description": "Button to extract data from receipt"
+  },
+  "dataExtracted": "Data Extracted",
+  "@dataExtracted": {
+    "description": "Message when data is extracted"
+  },
+  "merchant": "Merchant",
+  "@merchant": {
+    "description": "Label for merchant name"
+  },
+  "confidence": "Confidence",
+  "@confidence": {
+    "description": "Label for OCR confidence score"
+  },
+  "takePhoto": "Take Photo",
+  "@takePhoto": {
+    "description": "Button to take photo"
+  },
+  "chooseFromGallery": "Choose from Gallery",
+  "@chooseFromGallery": {
+    "description": "Button to choose from gallery"
+  },
+  "confirm": "Confirm",
+  "@confirm": {
+    "description": "Button to confirm action"
+  },
+  "skipOCR": "Skip OCR and enter manually",
+  "@skipOCR": {
+    "description": "Button to skip OCR"
+  },
+  "ocrFailed": "OCR extraction failed. You can still attach the receipt and enter data manually.",
+  "@ocrFailed": {
+    "description": "Message when OCR fails"
+  },
+  "categories": "Categories",
+  "@categories": {
+    "description": "Categories screen title"
+  },
+  "categoryTemplates": "Category Templates",
+  "@categoryTemplates": {
+    "description": "Category templates screen title"
+  },
+  "errorLoadingCategories": "Error loading categories",
+  "@errorLoadingCategories": {
+    "description": "Error message when categories fail to load"
+  },
+  "noCategoriesYet": "No Categories Yet",
+  "@noCategoriesYet": {
+    "description": "Empty state title when no categories exist"
+  },
+  "addCategoryToGetStarted": "Add a category to get started organizing your transactions",
+  "@addCategoryToGetStarted": {
+    "description": "Empty state description for categories"
+  },
+  "addCategory": "Add Category",
+  "@addCategory": {
+    "description": "Button to add category"
+  },
+  "editCategory": "Edit Category",
+  "@editCategory": {
+    "description": "Title for edit category screen"
+  },
+  "categoryNameRequired": "Category name is required",
+  "@categoryNameRequired": {
+    "description": "Validation message for category name"
+  },
+  "tapToSelectIcon": "Tap to select an icon",
+  "@tapToSelectIcon": {
+    "description": "Hint for icon selection"
+  },
+  "tapToSelectColor": "Tap to select a color",
+  "@tapToSelectColor": {
+    "description": "Hint for color selection"
+  },
+  "parentCategory": "Parent Category",
+  "@parentCategory": {
+    "description": "Label for parent category selection"
+  },
+  "noneRootCategory": "None (Root Category)",
+  "@noneRootCategory": {
+    "description": "Option for no parent category"
+  },
+  "categorySaved": "Category saved",
+  "@categorySaved": {
+    "description": "Success message for category update"
+  },
+  "categoryAdded": "Category added",
+  "@categoryAdded": {
+    "description": "Success message for category creation"
+  },
+  "errorSavingCategory": "Error saving category",
+  "@errorSavingCategory": {
+    "description": "Error message when category save fails"
+  },
+  "deleteCategory": "Delete Category",
+  "@deleteCategory": {
+    "description": "Title for delete category dialog"
+  },
+  "deleteCategoryWarning": "Are you sure you want to delete \"{name}\"? All transactions in this category will be reassigned.",
+  "@deleteCategoryWarning": {
+    "description": "Warning message for category deletion",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "selectReassignCategory": "Select a category to reassign transactions to:",
+  "@selectReassignCategory": {
+    "description": "Instruction for reassigning transactions"
+  },
+  "cannotDeleteLastCategory": "Cannot delete the last category. Please create another category first.",
+  "@cannotDeleteLastCategory": {
+    "description": "Error message when trying to delete last category"
+  },
+  "categoryDeleted": "Category deleted",
+  "@categoryDeleted": {
+    "description": "Success message for category deletion"
+  },
+  "errorDeletingCategory": "Error deleting category",
+  "@errorDeletingCategory": {
+    "description": "Error message when category deletion fails"
+  },
+  "selectTemplateForYourRegion": "Select a category template that matches your region and lifestyle",
+  "@selectTemplateForYourRegion": {
+    "description": "Instruction for template selection"
+  },
+  "andMoreCategories": "and {count} more...",
+  "@andMoreCategories": {
+    "description": "Text showing additional categories count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "applyTemplate": "Apply Template",
+  "@applyTemplate": {
+    "description": "Button to apply category template"
+  },
+  "templateApplied": "Template applied successfully",
+  "@templateApplied": {
+    "description": "Success message for template application"
+  },
+  "errorApplyingTemplate": "Error applying template",
+  "@errorApplyingTemplate": {
+    "description": "Error message when template application fails"
+  },
+  "reports": "Reports",
+  "@reports": {
+    "description": "Reports screen title"
+  },
+  "export": "Export",
+  "@export": {
+    "description": "Export button text"
+  },
+  "spendingByCategory": "Spending by Category",
+  "@spendingByCategory": {
+    "description": "Title for spending by category chart"
+  },
+  "spendingTrends": "Spending Trends",
+  "@spendingTrends": {
+    "description": "Title for spending trends chart"
+  },
+  "insights": "Insights",
+  "@insights": {
+    "description": "Title for insights section"
+  },
+  "last7Days": "Last 7 Days",
+  "@last7Days": {
+    "description": "Quick date range option"
+  },
+  "last30Days": "Last 30 Days",
+  "@last30Days": {
+    "description": "Quick date range option"
+  },
+  "last90Days": "Last 90 Days",
+  "@last90Days": {
+    "description": "Quick date range option"
+  },
+  "thisYear": "This Year",
+  "@thisYear": {
+    "description": "Quick date range option"
+  },
+  "daily": "Daily",
+  "@daily": {
+    "description": "Daily granularity option"
+  },
+  "weekly": "Weekly",
+  "@weekly": {
+    "description": "Weekly granularity option"
+  },
+  "monthly": "Monthly",
+  "@monthly": {
+    "description": "Monthly granularity option"
+  },
+  "exportReport": "Export Report",
+  "@exportReport": {
+    "description": "Export report dialog title"
+  },
+  "exportPdf": "Export as PDF",
+  "@exportPdf": {
+    "description": "Export as PDF option"
+  },
+  "exportCsv": "Export as CSV",
+  "@exportCsv": {
+    "description": "Export as CSV option"
+  },
+  "generatingReport": "Generating report...",
+  "@generatingReport": {
+    "description": "Loading message while generating report"
+  },
+  "reportGenerated": "Report generated successfully",
+  "@reportGenerated": {
+    "description": "Success message for report generation"
+  }
+}
