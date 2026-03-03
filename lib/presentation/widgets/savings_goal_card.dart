@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../domain/entities/savings_goal.dart';
 import '../../application/state/auth_provider.dart';
+import '../../application/state/dashboard_provider.dart';
 
 /// Card widget displaying a savings goal with progress circle and actions
 class SavingsGoalCard extends ConsumerWidget {

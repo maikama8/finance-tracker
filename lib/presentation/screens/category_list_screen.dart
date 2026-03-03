@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../domain/entities/category.dart';
 import '../../domain/services/category_service.dart';
-import '../../l10n/app_localizations.dart';
+import '../../application/state/auth_provider.dart';
+import '../../gen_l10n/app_localizations.dart';
 import '../widgets/category_hierarchy_item.dart';
 import 'add_edit_category_screen.dart';
 import 'category_template_picker_screen.dart';
@@ -25,16 +26,22 @@ final categoryHierarchyProvider = FutureProvider.family<CategoryHierarchy, Strin
 
 /// Screen displaying all categories with hierarchy
 class CategoryListScreen extends ConsumerWidget {
-  final String userId;
-
   const CategoryListScreen({
     Key? key,
-    required this.userId,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context)!;
+    final user = ref.watch(currentUserProvider);
+    
+    if (user == null) {
+      return const Scaffold(
+        body: Center(child: CircularProgressIndicator()),
+      );
+    }
+    
+    final userId = user.id;
     final hierarchyAsync = ref.watch(categoryHierarchyProvider(userId));
 
     return Scaffold(
@@ -49,7 +56,7 @@ class CategoryListScreen extends ConsumerWidget {
         ],
       ),
       body: hierarchyAsync.when(
-        data: (hierarchy) => _buildCategoryList(context, hierarchy),
+        data: (hierarchy) => _buildCategoryList(context, hierarchy, ref),
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (error, stack) => Center(
           child: Text(l10n.errorLoadingCategories),
@@ -62,7 +69,7 @@ class CategoryListScreen extends ConsumerWidget {
     );
   }
 
-  Widget _buildCategoryList(BuildContext context, CategoryHierarchy hierarchy) {
+  Widget _buildCategoryList(BuildContext context, CategoryHierarchy hierarchy, WidgetRef ref) {
     final rootCategories = hierarchy.rootCategories;
 
     if (rootCategories.isEmpty) {
@@ -78,9 +85,8 @@ class CategoryListScreen extends ConsumerWidget {
         return CategoryHierarchyItem(
           category: category,
           children: children,
-          userId: userId,
           onEdit: () => _navigateToEditCategory(context, category),
-          onDelete: () => _showDeleteDialog(context, category),
+          onDelete: () => _showDeleteDialog(context, category, ref),
         );
       },
     );
@@ -130,9 +136,7 @@ class CategoryListScreen extends ConsumerWidget {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => AddEditCategoryScreen(
-          userId: userId,
-        ),
+        builder: (context) => const AddEditCategoryScreen(),
       ),
     );
   }
@@ -142,19 +146,21 @@ class CategoryListScreen extends ConsumerWidget {
       context,
       MaterialPageRoute(
         builder: (context) => AddEditCategoryScreen(
-          userId: userId,
           category: category,
         ),
       ),
     );
   }
 
-  void _showDeleteDialog(BuildContext context, Category category) {
+  void _showDeleteDialog(BuildContext context, Category category, WidgetRef ref) {
+    final user = ref.read(currentUserProvider);
+    if (user == null) return;
+    
     showDialog(
       context: context,
       builder: (context) => DeleteCategoryDialog(
         category: category,
-        userId: userId,
+        userId: user.id,
       ),
     );
   }
@@ -163,9 +169,7 @@ class CategoryListScreen extends ConsumerWidget {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => CategoryTemplatePickerScreen(
-          userId: userId,
-        ),
+        builder: (context) => const CategoryTemplatePickerScreen(),
       ),
     );
   }

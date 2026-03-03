@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../domain/entities/category.dart';
 import '../../domain/entities/category_template.dart';
 import '../../domain/entities/regional_category_templates.dart';
 import '../../domain/services/category_service.dart';
-import '../../l10n/app_localizations.dart';
+import '../../application/state/auth_provider.dart';
+import '../../gen_l10n/app_localizations.dart';
 
 /// Screen for selecting and applying regional category templates
 class CategoryTemplatePickerScreen extends ConsumerStatefulWidget {
-  final String userId;
   final bool isFirstLaunch;
 
   const CategoryTemplatePickerScreen({
     Key? key,
-    required this.userId,
     this.isFirstLaunch = false,
   }) : super(key: key);
 
@@ -250,6 +250,16 @@ class _CategoryTemplatePickerScreenState
   Future<void> _handleApplyTemplate() async {
     if (_selectedTemplate == null) return;
 
+    final user = ref.read(currentUserProvider);
+    if (user == null) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('User not authenticated')),
+        );
+      }
+      return;
+    }
+
     setState(() {
       _isApplying = true;
     });
@@ -265,8 +275,8 @@ class _CategoryTemplatePickerScreenState
       await categoryService.getDefaultCategories(locale);
 
       // Refresh category lists
-      ref.invalidate(categoryListProvider(widget.userId));
-      ref.invalidate(categoryHierarchyProvider(widget.userId));
+      ref.invalidate(categoryListProvider(user.id));
+      ref.invalidate(categoryHierarchyProvider(user.id));
 
       if (mounted) {
         if (widget.isFirstLaunch) {

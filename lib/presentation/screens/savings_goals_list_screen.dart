@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:decimal/decimal.dart';
 import '../../domain/entities/savings_goal.dart';
 import '../../application/state/auth_provider.dart';
+import '../../application/state/savings_goal_provider.dart';
 import '../widgets/savings_goal_card.dart';
 import 'add_edit_goal_screen.dart';
 import 'goal_detail_screen.dart';

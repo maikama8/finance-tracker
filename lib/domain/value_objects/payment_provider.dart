@@ -81,6 +81,14 @@ class PaymentProvider extends Equatable {
     return supportedRegions.contains(countryCode.toUpperCase());
   }
 
+  /// Get a description of the provider
+  String get description {
+    if (isGlobal) {
+      return 'Available worldwide';
+    }
+    return 'Available in ${supportedRegions.join(", ")}';
+  }
+
   @override
   List<Object?> get props => [type, name, displayName, supportedRegions, isGlobal];
 

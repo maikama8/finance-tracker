@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../l10n/app_localizations.dart';
+import '../../gen_l10n/app_localizations.dart';
 import '../../application/state/locale_provider.dart';
 import '../../application/state/auth_provider.dart';
 import '../../domain/value_objects/currency.dart';

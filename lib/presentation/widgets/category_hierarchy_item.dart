@@ -5,7 +5,6 @@ import '../../domain/entities/category.dart';
 class CategoryHierarchyItem extends StatefulWidget {
   final Category category;
   final List<Category> children;
-  final String userId;
   final VoidCallback onEdit;
   final VoidCallback onDelete;
 
@@ -13,7 +12,6 @@ class CategoryHierarchyItem extends StatefulWidget {
     Key? key,
     required this.category,
     required this.children,
-    required this.userId,
     required this.onEdit,
     required this.onDelete,
   }) : super(key: key);

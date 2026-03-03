@@ -300,7 +300,7 @@ class _AddEditTransactionScreenState extends ConsumerState<AddEditTransactionScr
     final category = await Navigator.push<Category>(
       context,
       MaterialPageRoute(
-        builder: (context) => CategoryPickerScreen(userId: userId),
+        builder: (context) => const CategoryPickerScreen(),
       ),
     );
     if (category != null) {

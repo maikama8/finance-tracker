@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../l10n/app_localizations.dart';
+import '../../gen_l10n/app_localizations.dart';
 
 /// Grid of icons for category selection
 class IconPickerGrid extends StatelessWidget {

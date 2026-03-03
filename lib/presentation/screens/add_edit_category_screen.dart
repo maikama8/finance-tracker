@@ -2,18 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../domain/entities/category.dart';
 import '../../domain/services/category_service.dart';
-import '../../l10n/app_localizations.dart';
+import '../../gen_l10n/app_localizations.dart';
+import '../../application/state/auth_provider.dart';
 import '../widgets/color_picker_grid.dart';
 import '../widgets/icon_picker_grid.dart';
 
 /// Screen for adding or editing a category
 class AddEditCategoryScreen extends ConsumerStatefulWidget {
-  final String userId;
   final Category? category; // null for add, non-null for edit
 
   const AddEditCategoryScreen({
     Key? key,
-    required this.userId,
     this.category,
   }) : super(key: key);
 
@@ -204,7 +203,10 @@ class _AddEditCategoryScreenState extends ConsumerState<AddEditCategoryScreen> {
   }
 
   Widget _buildParentCategorySelector() {
-    final categoriesAsync = ref.watch(categoryListProvider(widget.userId));
+    final user = ref.watch(currentUserProvider);
+    if (user == null) return const SizedBox.shrink();
+    
+    final categoriesAsync = ref.watch(categoryListProvider(user.id));
 
     return categoriesAsync.when(
       data: (categories) {
@@ -295,6 +297,16 @@ class _AddEditCategoryScreenState extends ConsumerState<AddEditCategoryScreen> {
       return;
     }
 
+    final user = ref.read(currentUserProvider);
+    if (user == null) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('User not authenticated')),
+        );
+      }
+      return;
+    }
+
     setState(() {
       _isSaving = true;
     });
@@ -311,12 +323,12 @@ class _AddEditCategoryScreenState extends ConsumerState<AddEditCategoryScreen> {
       if (_isEditing) {
         await categoryService.updateCategory(widget.category!.id, input);
       } else {
-        await categoryService.createCustomCategory(widget.userId, input);
+        await categoryService.createCustomCategory(user.id, input);
       }
 
       // Refresh category lists
-      ref.invalidate(categoryListProvider(widget.userId));
-      ref.invalidate(categoryHierarchyProvider(widget.userId));
+      ref.invalidate(categoryListProvider(user.id));
+      ref.invalidate(categoryHierarchyProvider(user.id));
 
       if (mounted) {
         Navigator.pop(context);

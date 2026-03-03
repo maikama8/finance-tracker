@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../l10n/app_localizations.dart';
+import '../../gen_l10n/app_localizations.dart';
 
 /// Grid of colors for category selection
 class ColorPickerGrid extends StatelessWidget {

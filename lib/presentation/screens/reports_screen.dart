@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../l10n/app_localizations.dart';
+import '../../gen_l10n/app_localizations.dart';
 import 'package:decimal/decimal.dart';
 import '../../domain/services/report_generator.dart';
 import '../../domain/value_objects/date_range.dart';
