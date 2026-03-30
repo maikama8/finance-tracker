@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Personal Finance Tracker</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+            line-height: 1.7;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+            background-color: #fafafa;
+        }
+        h1 {
+            color: #1a73e8;
+            border-bottom: 2px solid #1a73e8;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #202124;
+            margin-top: 30px;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 6px;
+        }
+        .effective-date {
+            color: #666;
+            font-style: italic;
+        }
+        a {
+            color: #1a73e8;
+        }
+    </style>
+</head>
+<body>
+    <h1>Privacy Policy</h1>
+    <p class="effective-date">Effective Date: March 31, 2026</p>
+
+    <p>Personal Finance Tracker ("we", "our", or "the app") is developed by Abdulrasheed. This Privacy Policy explains how we collect, use, store, and protect your information when you use our mobile application.</p>
+
+    <h2>1. Information We Collect</h2>
+
+    <h3>a. Account Information</h3>
+    <ul>
+        <li>Email address, phone number, and display name (provided during registration)</li>
+        <li>Authentication credentials managed through Firebase Authentication (Google Sign-In, phone OTP, or email link)</li>
+    </ul>
+
+    <h3>b. Financial Data</h3>
+    <ul>
+        <li>Transactions (amounts, currency, category, date, and notes)</li>
+        <li>Budgets (monthly spending limits per category)</li>
+        <li>Savings goals (target amounts, progress, and deadlines)</li>
+        <li>Categories you create or customize</li>
+    </ul>
+
+    <h3>c. Receipt Data</h3>
+    <ul>
+        <li>Receipt images captured via your device camera or selected from your gallery</li>
+        <li>Text extracted from receipts using on-device OCR (Google ML Kit Text Recognition)</li>
+    </ul>
+
+    <h3>d. Preferences</h3>
+    <ul>
+        <li>Language and locale settings</li>
+        <li>Base currency preference</li>
+        <li>Notification preferences (budget alerts, goal reminders)</li>
+    </ul>
+
+    <h3>e. Technical Data</h3>
+    <ul>
+        <li>Device connectivity status (to manage offline/online synchronization)</li>
+        <li>Sync timestamps and status</li>
+    </ul>
+
+    <h2>2. How We Use Your Information</h2>
+    <ul>
+        <li>To provide and maintain the app's core functionality (tracking finances, budgets, and savings goals)</li>
+        <li>To authenticate your identity and secure your account</li>
+        <li>To synchronize your data across devices via cloud storage</li>
+        <li>To send push notifications for budget alerts, goal reminders, and goal achievements (if enabled)</li>
+        <li>To process receipt images and extract transaction data</li>
+        <li>To fetch exchange rates for multi-currency support</li>
+    </ul>
+
+    <h2>3. Third-Party Services</h2>
+    <p>The app uses the following third-party services, each governed by their own privacy policies:</p>
+    <ul>
+        <li><strong>Firebase Authentication</strong> &ndash; for user sign-in and account management</li>
+        <li><strong>Cloud Firestore</strong> &ndash; for cloud data storage and synchronization</li>
+        <li><strong>Firebase Cloud Messaging</strong> &ndash; for push notifications</li>
+        <li><strong>Google ML Kit</strong> &ndash; for on-device text recognition (receipt OCR processing happens locally on your device)</li>
+        <li><strong>ExchangeRate-API</strong> &ndash; for fetching current currency exchange rates</li>
+        <li><strong>Payment Gateways</strong> (Paystack, Flutterwave, Stripe, PayPal, Razorpay) &ndash; for processing savings goal contributions. Payment data is handled directly by these providers; we do not store your payment card details.</li>
+    </ul>
+
+    <h2>4. Data Storage and Security</h2>
+    <ul>
+        <li>Your financial data is stored locally on your device using an encrypted Hive database, enabling offline access.</li>
+        <li>Data is synced to Google Cloud Firestore when an internet connection is available, protected by Firebase security rules.</li>
+        <li>Receipt images are compressed and stored locally on your device.</li>
+        <li>We do not sell, rent, or share your personal or financial data with third parties for marketing purposes.</li>
+    </ul>
+
+    <h2>5. Permissions</h2>
+    <p>The app may request the following device permissions:</p>
+    <ul>
+        <li><strong>Internet</strong> &ndash; required for cloud sync, authentication, and exchange rate updates</li>
+        <li><strong>Camera</strong> &ndash; to capture receipt photos for OCR processing</li>
+        <li><strong>Storage / Photos</strong> &ndash; to select receipt images from your gallery and store processed images</li>
+        <li><strong>Notifications</strong> &ndash; to deliver budget alerts and goal reminders</li>
+    </ul>
+
+    <h2>6. Data Retention</h2>
+    <ul>
+        <li>Your data is retained as long as your account is active.</li>
+        <li>You may delete individual transactions, budgets, or savings goals at any time within the app.</li>
+        <li>To request complete deletion of your account and all associated data, please contact us at the email below.</li>
+    </ul>
+
+    <h2>7. Your Rights</h2>
+    <p>You have the right to:</p>
+    <ul>
+        <li>Access your personal data stored in the app</li>
+        <li>Correct or update your account information</li>
+        <li>Delete your data or request account deletion</li>
+        <li>Opt out of push notifications through your device settings</li>
+    </ul>
+
+    <h2>8. Children's Privacy</h2>
+    <p>This app is not intended for use by children under the age of 13. We do not knowingly collect personal information from children. If you believe a child has provided us with personal data, please contact us so we can take appropriate action.</p>
+
+    <h2>9. Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. Any changes will be reflected on this page with an updated effective date. We encourage you to review this policy periodically.</p>
+
+    <h2>10. Contact Us</h2>
+    <p>If you have any questions or concerns about this Privacy Policy or your data, please contact us at:</p>
+    <p><strong>Email:</strong> zaaboronmichael@gmail.com</p>
+
+</body>
+</html>
