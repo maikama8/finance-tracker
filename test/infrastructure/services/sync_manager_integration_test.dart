@@ -191,10 +191,16 @@ void main() {
       when(mockConnectivity.checkConnectivity())
           .thenAnswer((_) async => [ConnectivityResult.wifi]);
       when(mockSyncQueue.getCount()).thenAnswer((_) async => 1);
-      when(mockSyncQueue.getAll()).thenAnswer((_) async => []);
+      when(mockSyncQueue.getAll()).thenAnswer((_) async {
+        await Future<void>.delayed(const Duration(milliseconds: 100));
+        return [];
+      });
 
       // Start first sync (will be slow)
       final firstSync = syncManager.syncAll();
+
+      // Let the first sync enter its critical section.
+      await Future<void>.delayed(const Duration(milliseconds: 10));
 
       // Try to start second sync immediately
       final secondSync = await syncManager.syncAll();

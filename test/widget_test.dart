@@ -1,27 +1,86 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
+import 'package:personal_finance_tracker/application/state/auth_provider.dart';
+import 'package:personal_finance_tracker/application/state/locale_provider.dart';
+import 'package:personal_finance_tracker/domain/entities/user.dart';
+import 'package:personal_finance_tracker/domain/services/auth_service.dart';
+import 'package:personal_finance_tracker/domain/services/locale_service.dart';
 import 'package:personal_finance_tracker/main.dart';
+
+class _FakeAuthService implements AuthService {
+  const _FakeAuthService();
+
+  @override
+  Stream<User?> get authStateChanges => const Stream.empty();
+
+  @override
+  Future<AuthResult> sendOTP(String emailOrPhone) async {
+    return AuthResult.failure('Not implemented in widget test');
+  }
+
+  @override
+  Future<AuthResult> signInWithFirebase(AuthProvider provider) async {
+    return AuthResult.failure('Not implemented in widget test');
+  }
+
+  @override
+  Future<void> signOut() async {}
+
+  @override
+  Future<AuthResult> verifyOTP(String emailOrPhone, String otp) async {
+    return AuthResult.failure('Not implemented in widget test');
+  }
+}
+
+class _FakeLocaleService implements LocaleService {
+  @override
+  Locale getCurrentLocale() => const Locale('en');
+
+  @override
+  TextDirection getTextDirection(Locale locale) => TextDirection.ltr;
+
+  @override
+  bool isRTL(Locale locale) => false;
+
+  @override
+  List<Locale> getSupportedLocales() => const [
+        Locale('en'),
+        Locale('fr'),
+        Locale('es'),
+        Locale('de'),
+        Locale('pt'),
+        Locale('ar'),
+        Locale('hi'),
+        Locale('zh'),
+      ];
+
+  @override
+  String localeToString(Locale locale) => locale.languageCode;
+
+  @override
+  Locale parseLocaleString(String localeString) => Locale(localeString);
+
+  @override
+  Future<void> setLocale(Locale locale) async {}
+}
 
 void main() {
   testWidgets('App launches successfully', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
     await tester.pumpWidget(
-      const ProviderScope(
-        child: PersonalFinanceTrackerApp(),
+      ProviderScope(
+        overrides: [
+          authServiceProvider.overrideWith((ref) => const _FakeAuthService()),
+          localeServiceProvider.overrideWith((ref) => _FakeLocaleService()),
+        ],
+        child: const PersonalFinanceTrackerApp(),
       ),
     );
 
-    // Verify that the welcome screen is displayed
-    expect(find.text('Welcome to Personal Finance Tracker'), findsOneWidget);
+    await tester.pumpAndSettle();
+
+    expect(find.text('Personal Finance Tracker'), findsOneWidget);
     expect(find.byIcon(Icons.account_balance_wallet), findsOneWidget);
+    expect(find.text('Manage your finances securely'), findsOneWidget);
   });
 }

@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:personal_finance_tracker/gen_l10n/app_localizations.dart';
 import 'presentation/screens/login_screen.dart';
 import 'presentation/screens/dashboard_screen.dart';
@@ -15,31 +16,37 @@ import 'infrastructure/data_sources/local/hive_database.dart';
 import 'infrastructure/services/error_handler.dart';
 import 'dart:async';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  
-  // Set up global error handling
-  FlutterError.onError = (FlutterErrorDetails details) {
-    ErrorHandler().handleError(
-      details.exception,
-      details.stack,
-      context: 'Flutter Framework',
-      severity: ErrorSeverity.error,
-    );
-  };
-
+void main() {
   // Handle errors outside of Flutter framework
   runZonedGuarded(
     () async {
+      WidgetsFlutterBinding.ensureInitialized();
+
+      // Set up global error handling
+      FlutterError.onError = (FlutterErrorDetails details) {
+        ErrorHandler().handleError(
+          details.exception,
+          details.stack,
+          context: 'Flutter Framework',
+          severity: ErrorSeverity.error,
+        );
+      };
+
       // Initialize Firebase
       await Firebase.initializeApp();
-      
+
       // Initialize Hive for local storage
       await HiveDatabase.instance.initialize();
-      
+
+      // Pre-initialize SharedPreferences
+      final sharedPreferences = await SharedPreferences.getInstance();
+
       runApp(
-        const ProviderScope(
-          child: PersonalFinanceTrackerApp(),
+        ProviderScope(
+          overrides: [
+            sharedPreferencesProvider.overrideWithValue(sharedPreferences),
+          ],
+          child: const PersonalFinanceTrackerApp(),
         ),
       );
     },

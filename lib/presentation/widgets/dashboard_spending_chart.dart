@@ -39,7 +39,7 @@ class DashboardSpendingChart extends ConsumerWidget {
 
     spendingBreakdown.forEach((categoryId, amount) {
       final category = categories[categoryId];
-      final percentage = (amount / totalSpending * Decimal.fromInt(100)).toDouble();
+      final percentage = (amount / totalSpending).toDouble() * 100;
 
       sections.add(
         PieChartSectionData(

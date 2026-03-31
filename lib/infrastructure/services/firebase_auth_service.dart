@@ -8,7 +8,7 @@ import '../../domain/value_objects/currency.dart';
 import '../data_sources/local/user_local_data_source.dart';
 
 /// Firebase implementation of AuthService
-/// 
+///
 /// Provides OTP-based authentication with 5-minute expiry,
 /// Firebase social authentication, and session management.
 class FirebaseAuthService implements AuthService {
@@ -26,9 +26,9 @@ class FirebaseAuthService implements AuthService {
     firebase_auth.FirebaseAuth? firebaseAuth,
     GoogleSignIn? googleSignIn,
     required UserLocalDataSource userLocalDataSource,
-  })  : _firebaseAuth = firebaseAuth ?? firebase_auth.FirebaseAuth.instance,
-        _googleSignIn = googleSignIn ?? GoogleSignIn(),
-        _userLocalDataSource = userLocalDataSource;
+  }) : _firebaseAuth = firebaseAuth ?? firebase_auth.FirebaseAuth.instance,
+       _googleSignIn = googleSignIn ?? GoogleSignIn(),
+       _userLocalDataSource = userLocalDataSource;
 
   @override
   Future<AuthResult> sendOTP(String emailOrPhone) async {
@@ -75,10 +75,11 @@ class FirebaseAuthService implements AuthService {
 
         await _firebaseAuth.verifyPhoneNumber(
           phoneNumber: emailOrPhone,
-          verificationCompleted: (firebase_auth.PhoneAuthCredential credential) {
-            // Auto-verification completed (Android only)
-            // This won't be used in our OTP flow
-          },
+          verificationCompleted:
+              (firebase_auth.PhoneAuthCredential credential) {
+                // Auto-verification completed (Android only)
+                // This won't be used in our OTP flow
+              },
           verificationFailed: (firebase_auth.FirebaseAuthException e) {
             completer.complete(
               AuthResult.failure(e.message ?? 'Failed to send OTP'),
@@ -138,9 +139,7 @@ class FirebaseAuthService implements AuthService {
       final elapsed = now.difference(session.timestamp);
       if (elapsed > _otpExpiryDuration) {
         _otpSessions.remove(emailOrPhone);
-        return AuthResult.failure(
-          'OTP has expired. Please request a new OTP.',
-        );
+        return AuthResult.failure('OTP has expired. Please request a new OTP.');
       }
 
       // Determine if input is email or phone
@@ -178,9 +177,7 @@ class FirebaseAuthService implements AuthService {
       return AuthResult.success(user);
     } on firebase_auth.FirebaseAuthException catch (e) {
       if (e.code == 'invalid-verification-code') {
-        return AuthResult.failure(
-          'Incorrect OTP. Please try again.',
-        );
+        return AuthResult.failure('Incorrect OTP. Please try again.');
       }
       return AuthResult.failure(e.message ?? 'Failed to verify OTP');
     } catch (e) {
@@ -199,14 +196,10 @@ class FirebaseAuthService implements AuthService {
           break;
         case AuthProvider.apple:
           // Apple Sign In would require additional setup
-          return AuthResult.failure(
-            'Apple Sign In not yet implemented',
-          );
+          return AuthResult.failure('Apple Sign In not yet implemented');
         case AuthProvider.facebook:
           // Facebook Sign In would require additional setup
-          return AuthResult.failure(
-            'Facebook Sign In not yet implemented',
-          );
+          return AuthResult.failure('Facebook Sign In not yet implemented');
         case AuthProvider.emailPassword:
           return AuthResult.failure(
             'Email/Password sign in requires separate implementation',
@@ -220,6 +213,11 @@ class FirebaseAuthService implements AuthService {
     } on firebase_auth.FirebaseAuthException catch (e) {
       return AuthResult.failure(e.message ?? 'Authentication failed');
     } catch (e) {
+      final recoveredUser = await _recoverCurrentUser();
+      if (recoveredUser != null) {
+        return AuthResult.success(recoveredUser);
+      }
+
       return AuthResult.failure('An unexpected error occurred: $e');
     }
   }
@@ -251,7 +249,7 @@ class FirebaseAuthService implements AuthService {
   }
 
   /// Create or retrieve user profile from local/cloud storage
-  /// 
+  ///
   /// Requirements: 1.5
   Future<domain.User> _createOrRetrieveUserProfile(
     firebase_auth.User firebaseUser,
@@ -284,6 +282,17 @@ class FirebaseAuthService implements AuthService {
     return newUser;
   }
 
+  /// Some Google Play Services flows can throw even after Firebase has a user.
+  /// Recover that session so the app does not stay signed out.
+  Future<domain.User?> _recoverCurrentUser() async {
+    final firebaseUser = _firebaseAuth.currentUser;
+    if (firebaseUser == null) {
+      return null;
+    }
+
+    return _createOrRetrieveUserProfile(firebaseUser);
+  }
+
   @override
   Future<void> signOut() async {
     try {
@@ -304,8 +313,7 @@ class FirebaseAuthService implements AuthService {
         return null;
       }
 
-      // Get user profile from local storage
-      return await _userLocalDataSource.getById(firebaseUser.uid);
+      return _createOrRetrieveUserProfile(firebaseUser);
     });
   }
 }

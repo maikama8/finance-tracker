@@ -31,6 +31,9 @@ void main() {
           CategoryDefinition('Transport', '🚗', Colors.blue),
           CategoryDefinition('Food', '🍔', Colors.red),
         ],
+        name: 'United States',
+        description: 'Regional defaults for US users',
+        flag: 'US',
       );
 
       expect(template.locale, const Locale('en', 'US'));
@@ -42,6 +45,9 @@ void main() {
       const template = CategoryTemplate(
         locale: Locale('en', 'NG'),
         categories: [],
+        name: 'Nigeria',
+        description: 'Regional defaults for Nigerian users',
+        flag: 'NG',
       );
 
       expect(template.localeString, 'en_NG');

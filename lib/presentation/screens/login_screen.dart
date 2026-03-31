@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:personal_finance_tracker/gen_l10n/app_localizations.dart';
 import '../../application/state/auth_provider.dart';
+import '../navigation/app_routes.dart';
 import '../widgets/social_login_buttons.dart';
 import '../widgets/auth_error_display.dart';
 
@@ -19,6 +20,28 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
   final _emailPhoneController = TextEditingController();
   final _otpController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
+
+  @override
+  void initState() {
+    super.initState();
+    ref.listenManual<AuthState>(authProvider, (previous, next) {
+      final userJustSignedIn = previous?.user == null && next.user != null;
+      if (!userJustSignedIn || !mounted) {
+        return;
+      }
+
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (!mounted) {
+          return;
+        }
+
+        Navigator.of(context).pushNamedAndRemoveUntil(
+          AppRoutes.dashboard,
+          (route) => false,
+        );
+      });
+    });
+  }
 
   @override
   void dispose() {

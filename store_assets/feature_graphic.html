@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1024px;
+    height: 500px;
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  .container {
+    width: 1024px;
+    height: 500px;
+    background: linear-gradient(135deg, #1a56db 0%, #3b82f6 40%, #60a5fa 70%, #93c5fd 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .bg-circle-1 {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+    top: -100px;
+    right: -50px;
+  }
+  .bg-circle-2 {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+    bottom: -80px;
+    left: -60px;
+  }
+  .bg-circle-3 {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+    top: 50px;
+    left: 300px;
+  }
+  .content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    z-index: 1;
+  }
+  .logo-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 160px;
+    height: 160px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 36px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+  }
+  .logo-area img {
+    width: 120px;
+    height: 120px;
+    border-radius: 24px;
+  }
+  .text-area {
+    color: white;
+  }
+  .app-name {
+    font-size: 48px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 12px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  }
+  .tagline {
+    font-size: 22px;
+    font-weight: 400;
+    opacity: 0.92;
+    margin-bottom: 28px;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.15);
+  }
+  .features {
+    display: flex;
+    gap: 20px;
+  }
+  .feature-pill {
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+    border: 1px solid rgba(255,255,255,0.25);
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="bg-circle-1"></div>
+    <div class="bg-circle-2"></div>
+    <div class="bg-circle-3"></div>
+    <div class="content">
+      <div class="logo-area">
+        <img src="../assets/images/logo.png" alt="Logo">
+      </div>
+      <div class="text-area">
+        <div class="app-name">Personal Finance Tracker</div>
+        <div class="tagline">Track expenses, budgets & savings goals</div>
+        <div class="features">
+          <span class="feature-pill">Multi-Currency</span>
+          <span class="feature-pill">Receipt Scanner</span>
+          <span class="feature-pill">Offline-First</span>
+          <span class="feature-pill">Cloud Sync</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
